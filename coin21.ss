@@ -63,14 +63,14 @@
   )
   
 
-(display "KMM variant ")
-variant
+(display "Variant ")
+(display(variant))
 (newline)
-(display "1-2-3-5-10")
 (newline)
-(count-change 100 kinds-of-coins)
+(display((count-change 100)))
 (newline)
-(count-change (gr-amount) kinds-of-coins)
+(display((count-change gr-amount)))
+(set kinds-of-coins 13)
+(display((count-change 100)))
 (newline)
-(count-change 100 100)
-(newline)
+(display("(c) Permyakov N.A. 2021\n"))
