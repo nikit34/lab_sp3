@@ -19,13 +19,13 @@
 (define LAST-DIGIT-OF-GROUP-NUMBER 8)\par
 (define KINDS-OF-COINS 6)\par
 \par
-(define (first-denomination KINDS-OF-COINS)\par
-  (cond ((= KINDS-OF-COINS 1) 1)\par
-        ((= KINDS-OF-COINS 2) 2)\par
-        ((= KINDS-OF-COINS 3) 15)\par
-        ((= KINDS-OF-COINS 4) 20)\par
-        ((= KINDS-OF-COINS 5) 25)\par
-        ((= KINDS-OF-COINS 6) 50)\par
+(define (first-denomination kinds-of-coins)\par
+  (cond ((= kinds-of-coins 1) 1)\par
+        ((= kinds-of-coins 2) 2)\par
+        ((= kinds-of-coins 3) 15)\par
+        ((= kinds-of-coins 4) 20)\par
+        ((= kinds-of-coins 5) 25)\par
+        ((= kinds-of-coins 6) 50)\par
         (else 0)\par
         )\par
   )\par
@@ -57,26 +57,26 @@
   (not (or x? y?))\par
   )\par
 \par
-(define (cc amount KINDS-OF-COINS)\par
+(define (cc amount kinds-of-coins)\par
   (cond ((= amount 0) 1)\par
-        ((pier? (< amount 0) (= KINDS-OF-COINS 0))\par
-         (+ (cc amount (- KINDS-OF-COINS 1)) (cc (- amount (first-denomination KINDS-OF-COINS)) KINDS-OF-COINS)))\par
+        ((pier? (< amount 0) (= kinds-of-coins 0))\par
+         (+ (cc amount (- kinds-of-coins 1)) (cc (- amount (first-denomination kinds-of-coins)) kinds-of-coins)))\par
          (else 0)\par
     )\par
   )\par
 \par
-(define (denomination-list KINDS-OF-COINS)\par
-  (cond ((= KINDS-OF-COINS 0)\par
+(define (denomination-list kinds-of-coins)\par
+  (cond ((= kinds-of-coins 0)\par
          (newline) 0)\par
-         (else (display (first-denomination KINDS-OF-COINS))\par
+         (else (display (first-denomination kinds-of-coins))\par
                (display " ")\par
-               (denomination-list (- KINDS-OF-COINS 1))\par
+               (denomination-list (- kinds-of-coins 1))\par
            )\par
     )\par
   )\par
 \par
 \par
-(define (gr-amount)\par
+(define (GR-AMOUNT)\par
   (remainder (+ (* 100 LAST-DIGIT-OF-GROUP-NUMBER) VARIANT) 231)\par
   )\par
 \par
@@ -86,11 +86,10 @@
 (newline)\par
 (newline)\par
 (display (count-change 100)) (newline)\par
-(display (count-change (gr-amount))) (newline)\par
+(display (count-change (GR-AMOUNT))) (newline)\par
 (set! KINDS-OF-COINS 13)\par
 (display (count-change 100)) (newline)\par
 (display "(c) Permyakov N.A. 2021\\n")\par
-\par
 \par
 \'d0\'e0\'f1\'ef\'e5\'f7\'e0\'f2\'ea\'e0 \'f4\'e0\'e9\'eb\'e0 coin21. cpp (\'c6\'c8\'d0\'cd\'db\'c9 \'d8\'d0\'c8\'d4\'d2, 14 \'ef\'f3\'ed\'ea\'f2\'ee\'e2, Verdana).\par
 >\par
