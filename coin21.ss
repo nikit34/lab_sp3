@@ -31,7 +31,7 @@
                (display "count-change= ")
                (cc amount KINDS-OF-COINS)
                )
-              (display "Improper parametr value!\ncount-change= -1")
+              (else (display "Improper parameter value!\ncount-change= ") -1)
         )
   )
 )
